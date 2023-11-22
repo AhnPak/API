@@ -1,14 +1,7 @@
-from http import HTTPStatus
-from flask import Flask, jsonify, redirect, render_template, request, url_for
-import pandas as pd
-from konlpy.tag import Mecab
-from gensim.models.doc2vec import TaggedDocument
-from tqdm import tqdm
-import chardet
-import os
-import unicodedata
+from flask import Flask, jsonify, request
 from gensim.models import doc2vec
 import MakeDB
+import InferVector
 
 data = MakeDB.run()
 app = Flask(__name__)
@@ -32,11 +25,49 @@ json['category'] = '분야'
 }
 '''
 
-'''
-@app.route('/get', methods=['GET'])
-def get():
-    return jsonify(json)
-  '''
+
+@app.route('/test', methods=['POST'])
+def post2():
+    #여러개의 json을 받아오는 경우
+    params = request.get_json()
+    category = ''
+
+    text = []
+    name_list = []
+    for json in params:
+        name = json['name']
+        category = json['category']
+        print(json)
+        text.append(data[name][1])
+        name_list.append(name)
+
+    model_path = category.split('_')[0]
+    model_name = category + '_한국어_model'
+    model = doc2vec.Doc2Vec.load('../API/Model/{}/{}'.format(model_path, model_name))
+    # 생성한 모델 로드
+    infer_vec = InferVector.infer_vector(text, model)
+    similar_doc = model.dv.most_similar(positive=[infer_vec], topn=20)
+    # 5개까지 추천해주도록 설정
+
+    json_obj = []
+    count = 0
+    for doc_name, cosine in similar_doc:
+        if doc_name in name_list: #기존에 사용자가 서재에 추가한 논문의 경우는 추천 논문 리스트에 포함시키지 않음
+            continue;
+        count+=1
+        json = dict()
+        json['name'] = doc_name
+        json['abstract'] = data[doc_name][1]
+        json['author'] = data[doc_name][2]
+        json['year'] = data[doc_name][3]
+        json['link'] = data[doc_name][4]
+        json['category'] = data[doc_name][5]
+        json_obj.append(json)
+        if count == 5:
+            break
+
+    return jsonify(json_obj)
+
 
 @app.route('/post', methods=['POST'])
 def post():
@@ -63,11 +94,10 @@ def post():
         json['year'] = data[doc_name][3]
         json['link'] = data[doc_name][4]
         json['category'] = data[doc_name][5]
-        #print(json)
         json_obj.append(json)
-    #print(json_obj)
     return jsonify(json_obj)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
