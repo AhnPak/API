@@ -1,0 +1,43 @@
+attrs==23.1.0
+blinker==1.7.0
+Bottleneck @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_07078715-3ab7-4562-8d3d-d56b0eaa0f7dp504n_ny/croots/recipe/bottleneck_1657175566567/work
+certifi==2023.7.22
+chardet @ file:///Users/ktietz/demo/mc3/conda-bld/chardet_1628859434282/work
+click==8.1.7
+eunjeon==0.4.0
+exceptiongroup==1.1.3
+Flask==3.0.0
+gensim @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_59snnhi6c_/croot/gensim_1674852450457/work
+h11==0.14.0
+idna==3.4
+importlib-metadata==6.8.0
+itsdangerous==2.1.2
+Jinja2==3.1.2
+JPype1==1.4.1
+konlpy==0.6.0
+lxml==4.9.3
+MarkupSafe==2.1.3
+mecab-python3==1.0.8
+numexpr @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_45yefq0kt6/croot/numexpr_1696515289183/work
+numpy @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_362zs5g963/croot/numpy_and_numpy_base_1695830450707/work/dist/numpy-1.26.0-cp39-cp39-macosx_11_0_arm64.whl#sha256=e37b41d15b4b8b2adde02a2f2a3e74daaccdfa5962f4470c1c266acd01ffd2a0
+outcome==1.3.0.post0
+packaging==23.2
+pandas @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_63jsm9vzq9/croot/pandas_1697477169306/work/dist/pandas-2.1.1-cp39-cp39-macosx_11_0_arm64.whl#sha256=c95d0a00b5fda907c569b927f6e37de0394350acfdc26d677aa69455e0722e30
+PySocks==1.7.1
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pytz @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_6btwyyj8a1/croot/pytz_1695131592184/work
+regex==2023.10.3
+scipy @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_1b7r8zpma8/croot/scipy_1696543295098/work/dist/scipy-1.11.3-cp39-cp39-macosx_11_0_arm64.whl#sha256=d304d457b3dadc76b60f05474a9f8ca44d70a5f3b6ae70d234f157a66cd88783
+selenium==4.15.2
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+smart-open @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_12ff6ece-d716-4aec-a1e2-7bfc8de4f98e1d6t5p6v/croots/recipe/smart_open_1651563555507/work
+sniffio==1.3.0
+sortedcontainers==2.4.0
+tqdm==4.66.1
+trio==0.23.1
+trio-websocket==0.11.1
+tzdata @ file:///croot/python-tzdata_1690578112552/work
+urllib3==2.0.7
+Werkzeug==3.0.1
+wsproto==1.2.0
+zipp==3.17.0
